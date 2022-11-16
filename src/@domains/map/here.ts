@@ -6,21 +6,21 @@ export interface ITwoPointDistance {
   destination: string;
 }
 
-export interface WayPointItems {
+export interface IWayPointItems {
   id: string;
   location: string;
 }
 
-export interface WayPointRequest {
+export interface IWayPointRequest {
   mode: VehicleTypes;
   sorting: Sorting;
   start_point: string;
   end_point: string;
   wait_time: number;
-  points: WayPointItems[];
+  points: IWayPointItems[];
 }
 
-export interface WayPointItemDto {
+export interface IWayPointItemDto {
   lat: number;
   long: number;
   type: string;
