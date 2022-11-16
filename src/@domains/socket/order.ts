@@ -47,3 +47,13 @@ export interface INotifyDeliveryObject {
   type: RECEIVE_TYPE;
   data: INotifyDelivery;
 }
+
+export class NotifyDelivery implements INotifyDelivery {
+  delivery_id!: number;
+  order_count?: number | undefined;
+  address!: string;
+  cancelable!: boolean;
+  slot!: boolean;
+  slotTime!: string;
+  price?: number | undefined;
+}

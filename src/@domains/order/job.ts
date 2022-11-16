@@ -1,4 +1,4 @@
-import { IOrderDetail } from "./order";
+import { IOrderDetail } from './order';
 
 export interface IOrder2DeliveryModel {
   firm_id: number;
