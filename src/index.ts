@@ -20,3 +20,6 @@ export * from './@domains/socket/adminsync';
 
 export * from './@application/socket/order';
 export * from './@application/socket/location';
+
+export * from './@domains/map/here';
+export * from './@domains/map/constants';
