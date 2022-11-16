@@ -15,4 +15,3 @@ export interface JwtUser {
   user_type: string;
   expires: any;
 }
-

@@ -34,10 +34,8 @@ export enum OrderWarehouseStatusEnum {
 }
 
 export enum JobResponse {
-  OK = "OK",
-  ORDER_NOT_FOUND = "ORDER_NOT_FOUND",
-  FIRM_NOT_FOUND = "FIRM_NOT_FOUNT",
-  COURIER_NOT_FOUND = "COURIER_NOT_FOUNT",
+  OK = 'OK',
+  ORDER_NOT_FOUND = 'ORDER_NOT_FOUND',
+  FIRM_NOT_FOUND = 'FIRM_NOT_FOUNT',
+  COURIER_NOT_FOUND = 'COURIER_NOT_FOUNT',
 }
-
-

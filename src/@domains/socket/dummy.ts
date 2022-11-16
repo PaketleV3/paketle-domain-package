@@ -7,10 +7,9 @@ export interface IDummySignalObject {
 }
 
 export interface DummyMonitorData {
-  id: any,
-  data: any,
+  id: any;
+  data: any;
 }
-
 
 export interface MonitorModel {
   type: MONITORTYPES;
@@ -19,7 +18,7 @@ export interface MonitorModel {
 
 export interface MonitorDummy {
   type: MONITORTYPES;
-  id: any,
+  id: any;
   data: any;
 }
 
@@ -27,4 +26,3 @@ export interface MonitorLog {
   type: MONITORTYPES;
   data: any;
 }
-
