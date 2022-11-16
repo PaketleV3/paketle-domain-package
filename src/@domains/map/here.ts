@@ -1,5 +1,11 @@
 import { Sorting, VehicleTypes } from './constants';
 
+export interface ITwoPointStart {
+  time: Date;
+  lat: number;
+  long: number;
+}
+
 export interface ITwoPointDistance {
   mode: VehicleTypes;
   origin: string;
@@ -29,3 +35,14 @@ export interface IWayPointItemDto {
   distance: number;
   duration: number;
 }
+
+
+
+export interface TwoPointResponse {
+  duration: number;
+  distance: number;
+  start: ITwoPointStart;
+  end: ITwoPointStart;
+}
+
+
