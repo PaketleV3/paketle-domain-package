@@ -1,6 +1,6 @@
 import { RECEIVE_TYPE } from './constants';
 
-export interface AskOrderObject {
+export interface IAskOrderObject {
   hash: string;
   firm: string;
   address: string;
@@ -8,32 +8,32 @@ export interface AskOrderObject {
   desi?: number;
 }
 
-export interface NotifyAskObject {
+export interface INotifyAskObject {
   type: RECEIVE_TYPE;
-  data: AskOrderObject;
+  data: IAskOrderObject;
 }
 
-export interface BaseOrder {
+export interface IBaseOrder {
   customer_name: string;
   address: string;
   lat_long: string;
 }
 
-export interface ChangeDelivery {
+export interface IChangeDelivery {
   delivery_id: number;
   is_complete: boolean;
   complete_count: number;
   remainder_count: number;
   order_count: number;
-  next: BaseOrder;
+  next: IBaseOrder;
 }
 
-export interface ChangeDeliveryObject {
+export interface IChangeDeliveryObject {
   type: RECEIVE_TYPE;
-  data: ChangeDelivery;
+  data: IChangeDelivery;
 }
 
-export interface NotifyDelivery {
+export interface INotifyDelivery {
   delivery_id: number;
   order_count?: number;
   address: string;
@@ -43,7 +43,7 @@ export interface NotifyDelivery {
   price?: number;
 }
 
-export interface NotifyDeliveryObject {
+export interface INotifyDeliveryObject {
   type: RECEIVE_TYPE;
-  data: NotifyDelivery;
+  data: INotifyDelivery;
 }

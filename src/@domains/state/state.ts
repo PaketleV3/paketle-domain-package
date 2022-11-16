@@ -1,4 +1,4 @@
-export interface Work {
+export interface IWork {
   id: number;
   firm_id?: number;
   firm_name?: string;
@@ -12,7 +12,7 @@ export interface Work {
   is_overwork: boolean;
   tariff_id?: number;
 }
-export interface StateObject {
+export interface IStateObject {
   id: number;
   hash: string;
   validate_hash: string;
@@ -28,5 +28,5 @@ export interface StateObject {
   reject_count?: number;
   messaging_token?: string;
   shift_start_date?: Date;
-  work: Work;
+  work: IWork;
 }

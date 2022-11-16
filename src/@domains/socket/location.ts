@@ -1,24 +1,24 @@
 import { RECEIVE_TYPE } from './constants';
 
-export interface ReturnUpdate {
+export interface IReturnUpdate {
   target_time: number;
   target_km: number;
   current_location: string;
 }
 
-export interface ReturnUpdateObject {
+export interface IReturnUpdateObject {
   type: RECEIVE_TYPE;
-  data: ReturnUpdate;
+  data: IReturnUpdate;
 }
 
-export interface LocSignal {
+export interface ILocSignal {
   lat: string;
   long: string;
   battery: number;
 }
 
-export interface PublishCourier {
-  loc: LocSignal;
+export interface IPublishCourier {
+  loc: ILocSignal;
   courier_id: number;
   firm_id?: number;
   courier_name: string;

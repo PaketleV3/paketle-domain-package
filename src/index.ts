@@ -1,17 +1,19 @@
-export * as job from './@domains/order/job.model';
-export * as order from './@domains/order/order.model';
-export * from './@domains/order/delivery.model';
+export * from './@domains/order/job';
+export * from './@domains/order/order';
+export * from './@domains/order/delivery';
+export * from './@domains/order/constants';
 
-export * as token from './@domains/token/token.model';
+export * from './@domains/token/token';
 
-export * as state from './@domains/state/state.model';
-export * as payment from './@domains/payment/payment.model';
+export * from './@domains/state/state';
+export * from './@domains/payment/payment';
 
-export * as courier from './@domains/courier/q.model';
+export * from './@domains/courier/q';
+export * from './@domains/courier/constants';
 
-
-export * as socket_order from './@domains/socket/order.model';
-export * as socket_location from './@domains/socket/location.model';
-export * as socket_constants from './@domains/socket/constants';
-export * as socket_dummy from './@domains/socket/dummy.model';
-export * as socket_admin from './@domains/socket/adminsync.model';
+export * from './@domains/socket/order';
+export * from './@domains/socket/constants';
+export * from './@domains/socket/location';
+export * from './@domains/socket/constants';
+export * from './@domains/socket/dummy';
+export * from './@domains/socket/adminsync';

@@ -1,6 +1,6 @@
-import { OrderDetail } from './order.model';
+import { IOrderDetail } from './order.model';
 
-export interface Order2DeliveryModel {
+export interface IOrder2DeliveryModel {
   firm_id: number;
   order_id: number;
   delivery_type_id: string;
@@ -9,25 +9,25 @@ export interface Order2DeliveryModel {
   repeat?: number;
 }
 
-export interface FirmPool {
+export interface IFirmPool {
   pool_id: number;
   pool_name: string;
 }
 
-export interface FirmDetail {
+export interface IFirmDetail {
   id: number;
   name: string;
   lat: string;
   long: string;
   address: string;
   group_id: string;
-  pool?: FirmPool[];
+  pool?: IFirmPool[];
 }
 
-export interface JobModel {
+export interface IJobModel {
   hash: string;
-  firm: FirmDetail;
-  order: OrderDetail;
-  job: Order2DeliveryModel;
+  firm: IFirmDetail;
+  order: IOrderDetail;
+  job: IOrder2DeliveryModel;
   courierId?: number;
 }

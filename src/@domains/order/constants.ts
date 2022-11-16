@@ -32,21 +32,3 @@ export enum OrderWarehouseStatusEnum {
   OK = 'Kurye Onayladı',
   OUT = 'Eksik',
 }
-
-export interface OrderItem {
-  id: number;
-  qty: number;
-  item_price: number;
-}
-
-export interface OrderDetail {
-  id: number;
-  lat: string;
-  long: string;
-  order_code: string;
-  order_date: Date;
-  address: string;
-  city: string;
-  district: string;
-  items: OrderItem[];
-}

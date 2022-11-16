@@ -1,8 +1,4 @@
-export enum WorkingTypes {
-  POOL,
-  DEDICA,
-  JOKER,
-}
+import { WorkingTypes } from './constants';
 
 export interface IUserStatusChange {
   id: number;
@@ -15,7 +11,7 @@ export interface IUser {
   hash: string;
 }
 
-export interface IWork {
+export interface IWorking {
   working_type_code: WorkingTypes;
   firm_id: number;
   pool_id: number;
@@ -23,5 +19,5 @@ export interface IWork {
 
 export interface IQ {
   courier: IUser;
-  work: IWork;
+  work: IWorking;
 }
