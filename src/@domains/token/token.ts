@@ -4,7 +4,7 @@ export interface ITokenModel {
   name: string;
 }
 
-export interface JwtUser {
+export interface IJwtUser {
   user_id: number;
   user_name: string;
   mobile_phone: string;

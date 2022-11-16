@@ -6,23 +6,23 @@ export interface IDummySignalObject {
   data?: any;
 }
 
-export interface DummyMonitorData {
+export interface IDummyMonitorData {
   id: any;
   data: any;
 }
 
-export interface MonitorModel {
+export interface IMonitorModel {
   type: MONITORTYPES;
   data: ITokenModel;
 }
 
-export interface MonitorDummy {
+export interface IMonitorDummy {
   type: MONITORTYPES;
   id: any;
   data: any;
 }
 
-export interface MonitorLog {
+export interface IMonitorLog {
   type: MONITORTYPES;
   data: any;
 }
