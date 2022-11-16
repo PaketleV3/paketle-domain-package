@@ -36,13 +36,9 @@ export interface IWayPointItemDto {
   duration: number;
 }
 
-
-
-export interface TwoPointResponse {
+export interface ITwoPointResponse {
   duration: number;
   distance: number;
   start: ITwoPointStart;
   end: ITwoPointStart;
 }
-
-
