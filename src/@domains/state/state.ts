@@ -15,6 +15,7 @@ export interface IWork {
 export interface IStateObject {
   id: number;
   hash: string;
+  last_update?: Date;
   validate_hash: string;
   name: string;
   firm_id?: number;
