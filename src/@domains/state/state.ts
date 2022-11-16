@@ -1,10 +1,12 @@
+import { WorkingTypes } from "../courier/constants";
+
 export interface IWork {
   id: number;
   firm_id?: number;
   firm_name?: string;
   start: any;
   end: any;
-  working_type: 'POOL' | 'DEDICA';
+  working_type: WorkingTypes, 
   pool_id?: number;
   pool_name?: string;
   replacement_plate?: string;
@@ -12,6 +14,13 @@ export interface IWork {
   is_overwork: boolean;
   tariff_id?: number;
 }
+
+export interface IUserStatusChange {
+  id: number;
+  new_status: string;
+}
+
+
 export interface IStateObject {
   id: number;
   hash: string;
