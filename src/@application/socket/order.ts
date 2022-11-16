@@ -1,4 +1,4 @@
-import { IBaseOrder, IChangeDelivery, INotifyDelivery } from "../../@domains/socket/order";
+import { IBaseOrder, IChangeDelivery, INotifyDelivery } from '../../@domains/socket/order';
 
 export class NotifyDelivery implements INotifyDelivery {
   delivery_id!: number;

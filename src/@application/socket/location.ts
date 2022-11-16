@@ -1,4 +1,4 @@
-import { IReturnUpdate } from "../../@domains/socket/location";
+import { IReturnUpdate } from '../../@domains/socket/location';
 
 export class ReturnUpdate implements IReturnUpdate {
   target_time!: number;
