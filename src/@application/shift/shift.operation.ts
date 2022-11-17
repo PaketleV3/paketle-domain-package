@@ -60,6 +60,13 @@ export class ShiftOperation {
       ],
     };
 
+    if (response.active_work && response.active_work.is_active_state) {
+      response.is_start_shift = response.active_work.is_start_shift;
+      response.is_startable_shift = !response.active_work.is_start_shift;
+      response.show_shift_answer =
+        !response.active_work.is_start_shift && !response.active_work.is_shift_answer ? true : false;
+    }
+
     return response;
   }
 }
