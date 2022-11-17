@@ -1,4 +1,3 @@
-
 export const GET_STATE_SQL = `
             SELECT 
                 json_build_object(
@@ -73,4 +72,3 @@ export const GET_STATE_SQL = `
             WHERE 
                 c.is_active AND c.id = $1
         `;
-
