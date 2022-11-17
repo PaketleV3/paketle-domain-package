@@ -1,6 +1,28 @@
 import { WorkingTypes } from '../courier/constants';
 
-export interface IWork {
+export interface IWorkingPlan {
+  id: number;
+  working_day_id: number;
+  working_plan_confirm: boolean;
+  working_type: string;
+  firm_id: number;
+  firm_name: string;
+  lat: string;
+  long: string;
+  pool_id: number;
+  pool_name: string;
+  start: Date;
+  end: Date;
+  onway_time: number;
+  is_overwork: boolean;
+  replacement_plate: string;
+  is_active_state: boolean;
+  is_shift_answer: boolean;
+  is_start_shift?: boolean;
+}
+
+
+export interface IWork_ {
   id: number;
   firm_id?: number;
   firm_name?: string;
@@ -31,5 +53,5 @@ export interface IStateObject {
   reject_count?: number;
   messaging_token?: string;
   shift_start_date?: Date;
-  work: IWork;
+  work: IWorkingPlan;
 }

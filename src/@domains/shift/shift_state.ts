@@ -1,3 +1,5 @@
+import { IWorkingPlan } from "../state/state";
+
 export interface IAuthClient {
   id: number;
   client_name: string;
@@ -13,27 +15,6 @@ export interface IStateUser {
   long: string;
 }
 
-export interface IWorkinPlan {
-  id: number;
-  working_day_id: number;
-  working_plan_confirm: boolean;
-  working_type: string;
-  firm_id: number;
-  firm_name: string;
-  lat: string;
-  long: string;
-  pool_id: number;
-  pool_name: string;
-  start: Date;
-  end: Date;
-  onway_time: number;
-  is_overwork: boolean;
-  replacement_plate: string;
-  is_active_state: boolean;
-  is_shift_answer: boolean;
-  is_start_shift?: boolean;
-}
-
 export interface IKpi {
   type: string;
   label: string;
@@ -43,8 +24,8 @@ export interface IKpi {
 }
 
 export interface IWorkingDailyPlan {
-  today: IWorkinPlan[];
-  tomorrow: IWorkinPlan[];
+  today: IWorkingPlan[];
+  tomorrow: IWorkingPlan[];
 }
 
 export interface IShiftState {
@@ -55,6 +36,6 @@ export interface IShiftState {
   is_startable_shift?: boolean;
   show_shift_answer?: boolean;
   working_plan: IWorkingDailyPlan;
-  active_work: IWorkinPlan;
+  active_work: IWorkingPlan;
   dashboard_data: IKpi[];
 }
