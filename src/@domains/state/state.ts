@@ -56,4 +56,5 @@ export interface IStateObject {
   messaging_token?: string;
   shift_start_date?: Date;
   work: IWorkingPlan;
+  today: IWorkingPlan[];
 }
