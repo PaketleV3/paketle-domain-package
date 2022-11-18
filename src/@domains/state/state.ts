@@ -53,6 +53,10 @@ export interface IStateObject {
   long?: string;
   is_online?: boolean;
   battery?: number;
+  speed?: number;
+  accuracy?: number;
+  bearing?: number;
+  phone_info?: string;
   current_pool?: string;
   reject_count?: number;
   messaging_token?: string;
