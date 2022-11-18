@@ -15,6 +15,9 @@ export interface ILocSignal {
   lat: string;
   long: string;
   battery: number;
+  speed?: number;
+  bearing?: number; 
+  accuracy?: number;
 }
 
 export interface IPublishCourier {
