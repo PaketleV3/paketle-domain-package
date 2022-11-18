@@ -47,6 +47,9 @@ export const GET_STATE_SQL = `
                             AND 
                             now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' <= wp."end"
                         ) THEN true ELSE FALSE END as is_active_state,
+                        CASE WHEN (
+                            to_char(now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul','YYYY-MM-DD') = to_char(wp."start",'YYYY-MM-DD')
+                        ) THEN true ELSE FALSE END as is_active_today,
                         COALESCE(wd.is_answer, false) as is_shift_answer,
                         CASE WHEN wd.shift_start_lat IS NOT NULL THEN true ELSE false END as is_start_shift
                     FROM working_plan wp 

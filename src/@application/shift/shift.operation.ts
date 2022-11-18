@@ -23,6 +23,7 @@ export class ShiftOperation {
         is_overwork: item.is_overwork,
         replacement_plate: item.replacement_plate,
         is_active_state: item.is_active_state,
+        is_active_today: item.is_active_today,
         is_shift_answer: item.is_shift_answer,
         is_start_shift: item.is_start_shift,
       });
@@ -39,7 +40,7 @@ export class ShiftOperation {
       show_shift_answer: false,
       active_work:
         workingPlans.today && workingPlans.today.length > 0
-          ? workingPlans.today.find((i: any) => i.is_active_state)
+          ? workingPlans.today.find((i: any) => i.is_active_today)
           : {},
       dashboard_data: [
         {
@@ -60,7 +61,7 @@ export class ShiftOperation {
       ],
     };
 
-    if (response.active_work && response.active_work.is_active_state) {
+    if (response.active_work && response.active_work.is_active_today) {
       response.is_start_shift = response.active_work.is_start_shift;
       response.is_startable_shift = !response.active_work.is_start_shift;
       response.show_shift_answer =
