@@ -6,6 +6,7 @@ export interface IWorkingPlan {
   working_plan_confirm: boolean;
   working_type: string;
   firm_id: number;
+  tariff_id?: number;
   firm_name: string;
   lat: string;
   long: string;
