@@ -51,6 +51,8 @@ export interface IStateObject {
   status?: string;
   lat?: string;
   long?: string;
+  is_online?: boolean;
+  battery?: number;
   current_pool?: string;
   reject_count?: number;
   messaging_token?: string;
