@@ -1,5 +1,5 @@
 export enum WorkingTypes {
-  POOL,
-  DEDICA,
-  JOKER,
+  POOL="POOL",
+  DEDICA = "DEDICA",
+  JOKER = "JOKER",
 }

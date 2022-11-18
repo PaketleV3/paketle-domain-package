@@ -4,7 +4,7 @@ export interface IWorkingPlan {
   id: number;
   working_day_id: number;
   working_plan_confirm: boolean;
-  working_type: string;
+  working_type: WorkingTypes;
   firm_id: number;
   tariff_id?: number;
   firm_name: string;
