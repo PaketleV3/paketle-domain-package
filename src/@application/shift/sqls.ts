@@ -23,17 +23,10 @@ export const GET_STATE_SQL = `
                         wp.working_type_id as working_type,
                         wp.firm_id,
                         firm."name" as firm_name,
-                        firm.lat,
+                       firm.lat,
                         firm.long,
                         wp.pool_id,
                         pool.pool_name,
-                           (
-                               select row_to_json(tt) from (
-                                    select lat, pp.long
-                                    from pool_points pp
-                                    where pp.pool_id = pool.id
-                                ) tt
-                            ) as pool_points,
                         wp.pool_id,
                         pool.pool_name,
                         wp."start",
