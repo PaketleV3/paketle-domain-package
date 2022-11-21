@@ -27,6 +27,7 @@ export class ShiftOperation {
         is_shift_answer: item.is_shift_answer,
         is_start_shift: item.is_start_shift,
         to_end_second: item.to_end_second,
+        to_start_second: item.to_start_second,
       });
       return group;
     }, {});

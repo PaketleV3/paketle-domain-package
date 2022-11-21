@@ -46,6 +46,7 @@ export const GET_STATE_SQL = `
                         COALESCE(wd.is_answer, false) as is_shift_answer,
                         CASE WHEN wd.shift_start_lat IS NOT NULL THEN true ELSE false END as is_start_shift,
                         Extract(EPOCH FROM (wp."end" - now() at time zone 'Europe/Istanbul'))::int4 +1 AS to_end_second
+                        Extract(EPOCH FROM (wp."start" - now() at time zone 'Europe/Istanbul'))::int4 +1 AS to_start_second
                     FROM working_plan wp 
                         LEFT JOIN working_day wd ON wd.courier_id = wp.courier_id AND to_char(wd.workday,'YYYY-MM-DD') = to_char(wp."start", 'YYYY-MM-DD')
                         LEFT JOIN pool ON pool."id" = wp.pool_id

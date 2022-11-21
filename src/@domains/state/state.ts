@@ -1,4 +1,5 @@
 import { WorkingTypes } from '../courier/constants';
+import { ShiftPosition } from './constants';
 
 export interface IWorkingPlan {
   id: number;
@@ -22,6 +23,7 @@ export interface IWorkingPlan {
   is_shift_answer: boolean;
   is_start_shift?: boolean;
   to_end_second?: number;
+  to_start_second?: number;
 }
 
 export interface IWork_ {
@@ -67,5 +69,6 @@ export interface IStateObject {
 
 export interface IShiftJob {
   courier_id: number;
+  shift_position: ShiftPosition;
   work: IWorkingPlan;
 }
