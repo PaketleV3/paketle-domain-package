@@ -16,7 +16,7 @@ export interface ILocSignal {
   long: string;
   battery: number;
   speed?: number;
-  bearing?: number; 
+  bearing?: number;
   accuracy?: number;
 }
 

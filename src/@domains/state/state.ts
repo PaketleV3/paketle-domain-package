@@ -21,8 +21,8 @@ export interface IWorkingPlan {
   is_active_today: boolean;
   is_shift_answer: boolean;
   is_start_shift?: boolean;
+  to_end_second?: number;
 }
-
 
 export interface IWork_ {
   id: number;

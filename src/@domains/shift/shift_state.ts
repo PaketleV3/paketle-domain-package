@@ -1,4 +1,4 @@
-import { IWorkingPlan } from "../state/state";
+import { IWorkingPlan } from '../state/state';
 
 export interface IAuthClient {
   id: number;

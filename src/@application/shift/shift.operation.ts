@@ -26,6 +26,7 @@ export class ShiftOperation {
         is_active_today: item.is_active_today,
         is_shift_answer: item.is_shift_answer,
         is_start_shift: item.is_start_shift,
+        to_end_second: item.to_end_second,
       });
       return group;
     }, {});
@@ -65,7 +66,11 @@ export class ShiftOperation {
       response.is_start_shift = response.active_work.is_start_shift;
       response.is_startable_shift = !response.active_work.is_start_shift && response.active_work.is_active_state;
       response.show_shift_answer =
-        !response.active_work.is_start_shift && !response.active_work.is_shift_answer && !response.active_work.is_active_state ? true : false;
+        !response.active_work.is_start_shift &&
+        !response.active_work.is_shift_answer &&
+        !response.active_work.is_active_state
+          ? true
+          : false;
     }
 
     return response;
