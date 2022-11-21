@@ -64,3 +64,8 @@ export interface IStateObject {
   work: IWorkingPlan;
   today: IWorkingPlan[];
 }
+
+export interface IShiftJob {
+  courier_id: number;
+  work: IWorkingPlan;
+}
