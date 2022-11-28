@@ -11,6 +11,8 @@ export enum RECEIVE_TYPE {
   OFFLINE = 'OFFLINE',
   ACTIVELOG = 'ACTIVELOG',
   DEACTIVELOG = 'DEACTIVELOG',
+  LOG = 'LOG',
+
 }
 
 export enum ADMIN_CHANGE_TYPE {
