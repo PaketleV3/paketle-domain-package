@@ -29,4 +29,7 @@ export enum MONITORTYPES {
   ORDER = 'ORDER',
   ASK = 'ASK',
   LOCRESPONSE = 'LOCRESPONSE',
+  ONLINE = 'ONLINE',
+  OFFLINE = 'OFFLINE',
+
 }
