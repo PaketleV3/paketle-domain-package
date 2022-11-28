@@ -26,3 +26,8 @@ export interface IMonitorLog {
   type: MONITORTYPES;
   data: any;
 }
+
+export interface ISocketEvent {
+  to: string;
+  data: any;
+}
