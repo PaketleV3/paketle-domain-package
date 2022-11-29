@@ -18,6 +18,7 @@ export class ShiftOperation {
         pool_name: item.pool_name,
         start: item.start,
         end: item.end,
+        is_report_complete: item.is_report_complete,
         tariff_id: item.tariff_id,
         onway_time: item.onway_time,
         is_overwork: item.is_overwork,

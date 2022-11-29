@@ -17,6 +17,7 @@ export interface IWorkingPlan {
   end: Date;
   onway_time: number;
   is_overwork: boolean;
+  is_report_complete: boolean;
   replacement_plate: string;
   is_active_state: boolean;
   is_active_today: boolean;
