@@ -34,6 +34,7 @@ export const GET_STATE_SQL = `
                         wp.onway_time,
                         wp.tariff_id,
                         wp.is_overwork,
+                        coalesce(wp.is_report_complete,false) as is_report_complete,
                         wp.replacement_moto_id as replacement_plate,
                         CASE WHEN (
                             now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' >= wp."start" - INTERVAL '10 minutes'
