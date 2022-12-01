@@ -4,6 +4,9 @@ export interface IReturnUpdate {
   target_time: number;
   target_km: number;
   current_location: string;
+  target_name?: string;
+  target_location?: string;
+  arrived?: boolean;
 }
 
 export interface IReturnUpdateObject {
