@@ -46,6 +46,7 @@ export interface IStateObject {
   hash: string;
   last_update?: Date;
   validate_hash: string;
+  open_log?: boolean;
   name: string;
   firm_id?: number;
   firm?: string;
