@@ -38,7 +38,7 @@ export interface IWork_ {
   pool_name?: string;
   replacement_plate?: string;
   onway_time?: any;
-  is_overwork: boolean;
+  is_overwork: string;
   tariff_id?: number;
 }
 export interface IStateObject {
