@@ -33,7 +33,7 @@ export const GET_STATE_SQL = `
                         wp."end",
                         wp.onway_time,
                         wp.tariff_id,
-                        wp.is_overwork::varchar(10) as is_overwork,
+                        coalesce(wp.is_overwork,false)::varchar(10) as is_overwork,
                         coalesce(wp.is_report_complete,false) as is_report_complete,
                         wp.replacement_moto_id as replacement_plate,
                         CASE WHEN (
