@@ -4,3 +4,4 @@ export interface ICourierAdminChange {
   type: ADMIN_CHANGE_TYPE;
   id?: number;
 }
+
