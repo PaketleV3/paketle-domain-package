@@ -27,20 +27,6 @@ export interface IWorkingPlan {
   to_start_second?: number;
 }
 
-export interface IWork_ {
-  id: number;
-  firm_id?: number;
-  firm_name?: string;
-  start: any;
-  end: any;
-  working_type: WorkingTypes;
-  pool_id?: number;
-  pool_name?: string;
-  replacement_plate?: string;
-  onway_time?: any;
-  is_overwork: string;
-  tariff_id?: number;
-}
 export interface IStateObject {
   id: number;
   hash: string;
