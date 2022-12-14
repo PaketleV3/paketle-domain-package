@@ -39,6 +39,7 @@ export enum MONITORTYPES {
   ACTIVELOG = 'ACTIVELOG',
   DEACTIVELOG = 'DEACTIVELOG',
   LOG = 'LOG',
+  OTHER = 'OTHER',
 
 
 }
