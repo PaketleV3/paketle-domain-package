@@ -20,6 +20,7 @@ export interface IWorkingPlan {
     is_report_complete: boolean;
     replacement_plate: string;
     is_manuel_shift: boolean;
+    is_end:boolean;
     is_active_state: boolean;
     is_active_today: boolean;
     is_shift_answer: boolean;

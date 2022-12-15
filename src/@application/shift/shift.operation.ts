@@ -26,6 +26,7 @@ export class ShiftOperation {
                     is_overwork: item.is_overwork,
                     replacement_plate: item.replacement_plate,
                     is_manuel_shift: item.is_manuel_shift,
+                    is_end: item.is_end,
                     is_active_state: item.is_active_state,
                     is_active_today: item.is_active_today,
                     is_shift_answer: item.is_shift_answer,
@@ -49,7 +50,7 @@ export class ShiftOperation {
             show_shift_answer: false,
             active_work:
                 workingPlans && workingPlans.today && workingPlans.today.length > 0
-                    ? workingPlans.today.find((i: any) => i.is_active_today)
+                    ? workingPlans.today.find((i: any) => i.is_active_today && !i.is_end)
                     : {},
             dashboard_data: [
                 {
