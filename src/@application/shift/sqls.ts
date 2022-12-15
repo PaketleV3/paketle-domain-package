@@ -1,13 +1,12 @@
 export const GET_STATE_SQL = `
-            SELECT 
-                json_build_object(
-                    'id',c.id,
-                    'name_surname', c.name_surname,
-                    'status_code', c.status_id,
-                    'courier_type', c.courier_type_id,
-                    'lat', c.lat,
-                    'long', c.long
-                ) as user,
+    SELECT json_build_object(
+                   'id', c.id,
+                   'name_surname', c.name_surname,
+                   'status_code', c.status_id,
+                   'courier_type', c.courier_type_id,
+                   'lat', c.lat,
+                   'long', c.long
+               ) as user,
                 json_build_object(
                     'id', cl.id,
                     'client_name', cl.client_name,
@@ -36,6 +35,7 @@ export const GET_STATE_SQL = `
                         coalesce(wp.is_overwork,false) as is_overwork,
                         coalesce(wp.is_report_complete,false) as is_report_complete,
                         wp.replacement_moto_id as replacement_plate,
+                         coalesce(wp.is_manuel_shift, false)                                             as is_manuel_shift,
                         CASE WHEN (
                             now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' >= wp."start" - INTERVAL '10 minutes'
                             AND 
@@ -65,9 +65,11 @@ export const GET_STATE_SQL = `
                           DATE_TRUNC('month', now() at time zone 'Europe/Istanbul')
                             and courier_id= c.id
                 ) as reject_count
-            FROM 
-                couriers c 
-                JOIN clients cl ON cl.id = c.client_id	
-            WHERE 
-                c.is_active AND c.id = $1
-        `;
+    FROM
+        couriers c
+        JOIN clients cl
+    ON cl.id = c.client_id
+    WHERE
+        c.is_active
+      AND c.id = $1
+`;
