@@ -37,6 +37,7 @@ export const GET_STATE_SQL = `
                         wp.replacement_moto_id as replacement_plate,
                         coalesce(wp.is_manuel_shift, false) as is_manuel_shift,
                         coalesce(wp.is_end, false) as is_end,
+                        coalesce(firm.is_enable_menuel_delivery, false)                                 as is_enable_menuel_delivery,
                         CASE WHEN (
                             now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' >= wp."start" - INTERVAL '10 minutes'
                             AND 

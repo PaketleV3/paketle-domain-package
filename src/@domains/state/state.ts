@@ -25,6 +25,7 @@ export interface IWorkingPlan {
     is_active_today: boolean;
     is_shift_answer: boolean;
     is_start_shift?: boolean;
+    is_enable_menuel_delivery:boolean;
     to_end_second?: number;
     to_start_second?: number;
 }
