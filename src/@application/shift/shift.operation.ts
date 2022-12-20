@@ -31,9 +31,10 @@ export class ShiftOperation {
                     is_active_today: item.is_active_today,
                     is_shift_answer: item.is_shift_answer,
                     is_start_shift: item.is_start_shift,
-                    is_enable_menuel_delivery:item.is_enable_menuel_delivery,
+                    is_enable_manuel_delivery:item.is_enable_manuel_delivery,
                     to_end_second: item.to_end_second,
                     to_start_second: item.to_start_second,
+                    is_require_report: item.is_require_report,
                 });
                 return group;
             }, {});
