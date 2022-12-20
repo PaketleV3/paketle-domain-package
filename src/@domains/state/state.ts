@@ -58,6 +58,8 @@ export interface IStateObject {
   work: IWorkingPlan;
   today: IWorkingPlan[];
   yesterday?: IWorkingPlan[];
+  is_report_yesterday?: boolean;
+  is_report_today?: boolean;
 }
 
 export interface IShiftJob {

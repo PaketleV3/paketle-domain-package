@@ -24,6 +24,7 @@ export interface IKpi {
 }
 
 export interface IWorkingDailyPlan {
+  yesterday?: IWorkingPlan[];
   today: IWorkingPlan[];
   tomorrow: IWorkingPlan[];
 }
@@ -37,5 +38,7 @@ export interface IShiftState {
   show_shift_answer?: boolean;
   working_plan: IWorkingDailyPlan;
   active_work: IWorkingPlan;
+  is_report_yesterday: boolean;
+  is_report_today: boolean;
   dashboard_data: IKpi[];
 }
