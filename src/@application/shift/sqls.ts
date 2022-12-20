@@ -69,8 +69,8 @@ SELECT json_build_object(
                         coalesce(wd.is_shift_start, false)     as is_start_shift,
                         case
                             when coalesce(firm.delivery_policy_id, 'NONE') = 'NONE' and
-                                 coalesce(wp.is_report_complete, false) is false and 
-                                 coalesce(wp.is_start, false)
+                                 coalesce(wp.is_report_complete, false) is false  
+                                 -- and coalesce(wp.is_start, false)
                                 THEN true
                             else false end                     as is_require_report,
 
