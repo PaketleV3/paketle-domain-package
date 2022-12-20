@@ -70,6 +70,7 @@ SELECT json_build_object(
                         case
                             when coalesce(firm.delivery_policy_id, 'NONE') = 'NONE' and
                                  coalesce(wp.is_report_complete, false) is false  
+                                and now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' <= wp."end" + INTERVAL '10 minutes'
                                  -- and coalesce(wp.is_start, false)
                                 THEN true
                             else false end                     as is_require_report,
