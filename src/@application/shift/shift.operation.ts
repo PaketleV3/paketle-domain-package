@@ -53,7 +53,7 @@ export class ShiftOperation {
       is_report_yesterday: workingPlans && workingPlans.yesterday && workingPlans.yesterday.length > 0 &&
         workingPlans.yesterday.findIndex((i: any) => i.is_require_report) !== -1,
       is_report_today: workingPlans && workingPlans.today && workingPlans.today.length > 0 &&
-        workingPlans.yesterday.findIndex((i: any) => i.is_require_report && !i.is_start_shift) !== -1,
+        workingPlans.yesterday.findIndex((i: any) => i.is_require_report && i.is_start_shift) !== -1,
       active_work:
         workingPlans && workingPlans.today && workingPlans.today.length > 0
           ? workingPlans.today.find((i: any) => i.is_active_today && !i.is_end && i.is_active_state)
