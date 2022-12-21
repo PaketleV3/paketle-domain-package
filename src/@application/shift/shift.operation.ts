@@ -87,7 +87,7 @@ export class ShiftOperation {
           ? true
           : false;
     } else {
-      response.show_shift_answer = response.working_plan.today && response.working_plan.today.findIndex((i: any)=> i.is_active_state) !== -1
+      response.show_shift_answer = response.working_plan.today && response.working_plan.today.findIndex((i: any)=> i.is_active_today && !i.is_active_state) !== -1
     }
 
     return response;
