@@ -86,7 +86,7 @@ export class ShiftOperation {
           !response.active_work.is_active_state
           ? true
           : false;*/
-      response.show_shift_answer = !response.active_work;
+      response.show_shift_answer = true;
     }
 
     return response;
