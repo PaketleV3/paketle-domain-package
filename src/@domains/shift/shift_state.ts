@@ -24,7 +24,7 @@ export interface IKpi {
 }
 
 export interface IWorkingDailyPlan {
-  yesterday?: IWorkingPlan[];
+  yesterday: IWorkingPlan[];
   today: IWorkingPlan[];
   tomorrow: IWorkingPlan[];
 }
