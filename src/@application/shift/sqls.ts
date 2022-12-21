@@ -63,7 +63,7 @@ SELECT json_build_object(
                                     /*to_char(now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul',
                                             'YYYY-MM-DD') = to_char(wp."start", 'YYYY-MM-DD')*/
                                     now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' <=
-                                            wp."start" - INTERVAL '10 minutes'
+                                            wp."end"
                                 ) THEN true
                             ELSE FALSE END                     as is_active_today,
 
