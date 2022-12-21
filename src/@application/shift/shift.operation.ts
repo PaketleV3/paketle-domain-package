@@ -58,6 +58,7 @@ export class ShiftOperation {
         workingPlans && workingPlans.today && workingPlans.today.length > 0
           ? workingPlans.today.find((i: any) => i.is_active_today && !i.is_end && i.is_active_state)
           : {},
+      next_work: undefined,
       dashboard_data: [
         {
           label: 'Paket',
@@ -77,9 +78,16 @@ export class ShiftOperation {
       ],
     };
 
+    if (response.working_plan.yesterday && response.working_plan.yesterday.findIndex((i: any) => i.is_active_state) !== -1) {
+      response.next_work = response.working_plan.yesterday.find((i: any) => i.is_active_state);
+    } else if (response.working_plan.today && response.working_plan.today.findIndex((i: any) => i.is_active_state) !== -1) {
+      response.next_work = response.working_plan.today.find((i: any) => i.is_active_state);
+    }
+
+
     if (response.active_work && response.active_work.is_active_today) {
       response.is_start_shift = response.active_work.is_start_shift;
-      response.is_startable_shift =  response.active_work && !response.active_work.is_start_shift && response.active_work.is_active_state;
+      response.is_startable_shift = response.active_work && !response.active_work.is_start_shift && response.active_work.is_active_state;
       response.show_shift_answer =
         !response.active_work.is_start_shift &&
           !response.active_work.is_shift_answer &&
@@ -87,7 +95,7 @@ export class ShiftOperation {
           ? true
           : false;
     } else {
-      response.show_shift_answer = response.working_plan.today && response.working_plan.today.findIndex((i: any)=> i.to_start_second < 7200 && i.is_active_today && !i.is_active_state) !== -1
+      response.show_shift_answer = response.working_plan.today && response.working_plan.today.findIndex((i: any) => i.to_start_second < 7200 && i.is_active_today && !i.is_active_state) !== -1
     }
 
     return response;
