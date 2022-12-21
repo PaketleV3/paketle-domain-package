@@ -85,13 +85,13 @@ export class ShiftOperation {
     }
 
 
-    if (response.active_work && response.active_work.is_active_today) {
-      response.is_start_shift = response.active_work.is_start_shift;
-      response.is_startable_shift = response.active_work && !response.active_work.is_start_shift && response.active_work.is_active_state;
+    if (response.next_work && response.next_work.is_active_today) {
+      response.is_start_shift = response.next_work.is_start_shift;
+      response.is_startable_shift = response.next_work && !response.next_work.is_start_shift && response.next_work.is_active_state;
       response.show_shift_answer =
-        !response.active_work.is_start_shift &&
-          !response.active_work.is_shift_answer &&
-          !response.active_work.is_active_state
+        !response.next_work.is_start_shift &&
+          !response.next_work.is_shift_answer &&
+          !response.next_work.is_active_state
           ? true
           : false;
     } else {
