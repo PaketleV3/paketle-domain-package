@@ -80,13 +80,14 @@ export class ShiftOperation {
     if (response.active_work && response.active_work.is_active_today) {
       response.is_start_shift = response.active_work.is_start_shift;
       response.is_startable_shift =  response.active_work && !response.active_work.is_start_shift && response.active_work.is_active_state;
-      /*response.show_shift_answer =
+      response.show_shift_answer =
         !response.active_work.is_start_shift &&
           !response.active_work.is_shift_answer &&
           !response.active_work.is_active_state
           ? true
-          : false;*/
-      response.show_shift_answer = true;
+          : false;
+    } else {
+      response.show_shift_answer = response.working_plan.today && response.working_plan.today.findIndex((i: any)=> i.is_active_state) !== -1
     }
 
     return response;
