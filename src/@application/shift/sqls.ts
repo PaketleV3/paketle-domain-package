@@ -103,7 +103,7 @@ SELECT json_build_object(
                          or
                          ( -- Dün başladı bugün içindeyiz; rapor durumuna bakılmıyor
                                      date_trunc('day', wp.start) = date_trunc('day', now() + interval '-1 day')
-                                 and coalesce(wp.is_start, false) is false
+                                 -- and coalesce(wp.is_start, false)
                                  and
                                      now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' BETWEEN wp.start::timestamp AND wp.end::timestamp
                              )
