@@ -58,6 +58,7 @@ export class ShiftOperation {
         workingPlans && workingPlans.today && workingPlans.today.length > 0
           ? workingPlans.today.find((i: any) => i.is_active_today && !i.is_end && i.is_active_state)
           : {},
+      is_yesterday: workingPlans && workingPlans.yesterday && workingPlans.yesterday.length >0 ? true : false,
       next_work: undefined,
       dashboard_data: [
         {

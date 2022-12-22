@@ -41,5 +41,6 @@ export interface IShiftState {
   next_work: IWorkingPlan | undefined;
   is_report_yesterday: boolean;
   is_report_today: boolean;
+  is_yesterday: boolean;
   dashboard_data: IKpi[];
 }
