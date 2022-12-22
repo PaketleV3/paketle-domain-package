@@ -92,7 +92,8 @@ export class ShiftOperation {
       response.show_shift_answer =
         !response.next_work.is_start_shift &&
           !response.next_work.is_shift_answer &&
-          !response.next_work.is_active_state
+          !response.next_work.is_active_state &&
+          response.next_work && response.next_work.to_start_second && response.next_work.to_start_second < 7200
           ? true
           : false;
     } else {
