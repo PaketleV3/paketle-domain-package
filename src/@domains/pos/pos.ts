@@ -10,7 +10,7 @@ export interface IPosInfo {
   sub_merchantid: string;
   status_id: string;
   client_pass: string;
-  token: string;
+  token?: string;
   courier_name: string;
   courier_id: number;
   client_name: string;
