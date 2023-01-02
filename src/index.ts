@@ -17,6 +17,7 @@ export * from './@domains/socket/location';
 export * from './@domains/socket/constants';
 export * from './@domains/socket/dummy';
 export * from './@domains/socket/adminsync';
+export * from './@domains/socket/pos';
 
 export * from './@domains/map/here';
 export * from './@domains/map/constants';
