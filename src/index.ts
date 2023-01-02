@@ -21,9 +21,11 @@ export * from './@domains/socket/adminsync';
 export * from './@domains/map/here';
 export * from './@domains/map/constants';
 export * from './@domains/shift/shift_state';
+export * from './@domains/pos/pos';
 
 export * from './@application/socket/order';
 export * from './@application/socket/location';
 
 export * from './@application/shift/sqls';
 export * from './@application/shift/shift.operation';
+
