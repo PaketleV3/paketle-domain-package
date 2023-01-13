@@ -35,6 +35,7 @@ export class ShiftOperation {
           to_end_second: item.to_end_second,
           to_start_second: item.to_start_second,
           is_require_report: item.is_require_report,
+          delivery_policy_id: item.delivery_policy_id,
         });
         return group;
       }, {});
