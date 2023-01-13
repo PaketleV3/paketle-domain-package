@@ -44,6 +44,7 @@ SELECT json_build_object(
                         coalesce(wp.is_manuel_shift, false)    as is_manuel_shift,
                         coalesce(wp.is_end, false)             as is_end,
                         --coalesce(firm.is_enable_menuel_delivery, false)                   as is_enable_menuel_delivery,
+                        coalesce(firm.delivery_policy_id, 'NONE') as delivery_policy_id,
                         case
                             when coalesce(firm.delivery_policy_id, 'NONE') = 'NONE'
                                 THEN true
