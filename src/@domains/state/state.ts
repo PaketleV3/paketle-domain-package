@@ -25,7 +25,8 @@ export interface IWorkingPlan {
   is_active_today: boolean;
   is_shift_answer: boolean;
   is_start_shift?: boolean;
-  is_enable_manuel_delivery: boolean;
+  is_enable_manuel_delivery?: boolean;
+  delivery_policy_id?: string | null;
   to_end_second?: number;
   to_start_second?: number;
   is_require_report?: boolean;
