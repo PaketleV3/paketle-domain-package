@@ -18,8 +18,8 @@ SELECT json_build_object(
                         wd.id                                  as working_day_id,
                         COALESCE(wd.is_answer, false)          as working_plan_confirm,
                         (CASE
-                             WHEN to_char(wp.start, 'YYYY-MM-DD') = to_char(now(), 'YYYY-MM-DD') THEN 'today'
-                             WHEN to_char(wp.start, 'YYYY-MM-DD') = to_char(now() + interval '-1 day', 'YYYY-MM-DD')
+                             WHEN to_char(wp.start, 'YYYY-MM-DD') = to_char(now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul', 'YYYY-MM-DD') THEN 'today'
+                             WHEN to_char(wp.start, 'YYYY-MM-DD') = to_char(now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' + interval '-1 day', 'YYYY-MM-DD')
                                  THEN 'yesterday'
                              ELSE
                                  'tomorrow'
