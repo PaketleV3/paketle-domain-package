@@ -73,7 +73,8 @@ SELECT json_build_object(
                         COALESCE(wd.is_answer, false)          as is_shift_answer,
                         coalesce(wd.is_shift_start, false)     as is_start_shift,
                         case
-                            when coalesce(firm.delivery_policy_id, 'NONE') = 'NONE' and
+                            when 
+                            	-- coalesce(firm.delivery_policy_id, 'NONE') = 'NONE' and
                                  coalesce(wp.is_report_complete, false) is false  
                                 and now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' >= wp."end" 
                                  -- and coalesce(wp.is_start, false)
