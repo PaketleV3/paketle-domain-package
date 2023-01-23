@@ -126,7 +126,7 @@ SELECT json_build_object(
            SELECT count(courier_id)::int as count
            FROM courier_reject_log
            where DATE_TRUNC('month', reject_date at time zone 'Europe/Istanbul') =
-                 DATE_TRUNC('month', now() at time zone 'Europe/Istanbul')
+                 DATE_TRUNC('month', now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul')
              and courier_id = c.id
        )     as reject_count
 FROM couriers c
