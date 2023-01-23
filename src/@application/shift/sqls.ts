@@ -81,9 +81,9 @@ SELECT json_build_object(
                                 THEN true
                             else false end                     as is_require_report,
 
-                        Extract(EPOCH FROM (wp."end" - now() at time zone 'Europe/Istanbul'))::int4 +
+                        Extract(EPOCH FROM (wp."end" - now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul'))::int4 +
                         1                                      AS to_end_second,
-                        Extract(EPOCH FROM (wp."start" - now() at time zone 'Europe/Istanbul'))::int4 +
+                        Extract(EPOCH FROM (wp."start" - now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul'))::int4 +
                         1                                      AS to_start_second
                  FROM working_plan wp
                           LEFT JOIN working_day wd ON wd.courier_id = wp.courier_id
@@ -95,27 +95,28 @@ SELECT json_build_object(
                    --AND wd.courier_id = c.id
                    AND (
                          ( -- Dün başladı bugün bir zaman aralığında bitti ancak raporlama yapılmadı
-                                     date_trunc('day', wp.start) = date_trunc('day', now() + interval '-1 day')
-                                 and date_trunc('day', wp.end) = date_trunc('day', now())
+                                     date_trunc('day', wp.start) = date_trunc('day', now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' + interval '-1 day')
+                                 and date_trunc('day', wp.end) = date_trunc('day', now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul')
                                  and (
                                              coalesce(wp.is_start, false)
                                              --AND not coalesce(wp.is_end, false)
-                                             and (wp.is_report_complete is not true and
-                                                  coalesce(firm.delivery_policy_id, 'NONE') = 'NONE')
+                                             and (wp.is_report_complete is not true AND wp.is_operation_edited IS NOT TRUE
+                                                -- and coalesce(firm.delivery_policy_id, 'NONE') = 'NONE'
+                                            )
                                          )
                              )
                          or
                          ( -- Dün başladı bugün içindeyiz; rapor durumuna bakılmıyor
-                                     date_trunc('day', wp.start) = date_trunc('day', now() + interval '-1 day')
+                                     date_trunc('day', wp.start) = date_trunc('day', now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' + interval '-1 day')
                                  -- and coalesce(wp.is_start, false)
                                  and
                                      now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' BETWEEN wp.start::timestamp AND wp.end::timestamp
                              )
                          or (
-                             date_trunc('day', wp.start) = date_trunc('day', now())
+                             date_trunc('day', wp.start) = date_trunc('day', now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul')
                              )
                          or (
-                                 date_trunc('day', wp.start) = date_trunc('day', now() + interval '+1 day')
+                                 date_trunc('day', wp.start) = date_trunc('day', now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' + interval '+1 day')
                              )
                      )
                  ORDER BY wp."start"
