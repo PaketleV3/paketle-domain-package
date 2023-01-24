@@ -97,8 +97,9 @@ export class ShiftOperation {
           response.next_work && response.next_work.to_start_second && response.next_work.to_start_second < 7200
           ? true
           : false;
-    } else {
-      response.show_shift_answer = response.working_plan.today && response.working_plan.today.findIndex((i: any) => i.to_start_second < 7200 && i.is_active_today && !i.is_active_state) !== -1
+    } else if (response.working_plan.today && response.working_plan.today.length > 0){
+      	response.show_shift_answer = response.working_plan.today && response.working_plan.today.findIndex((i: any) => i.to_start_second < 7200 && i.is_active_today && !i.is_active_state) !== -1
+      //response.show_shift_answer = response.working_plan.today && response.working_plan.today.findIndex((i: any) => i.to_start_second < 7200 && i.is_active_today && !i.is_active_state) !== -1
     }
 
     return response;
