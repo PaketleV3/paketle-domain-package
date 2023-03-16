@@ -86,12 +86,13 @@ SELECT json_build_object(
                         Extract(EPOCH FROM (wp."start" - now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul'))::int4 +
                         1                                      AS to_start_second
                  FROM working_plan wp
-                          LEFT JOIN working_day wd ON wd.courier_id = wp.courier_id
+                        LEFT JOIN working_day wd ON wd.courier_id = wp.courier_id
                      AND to_char(wd.workday, 'YYYY-MM-DD') =
                          to_char(wp."start", 'YYYY-MM-DD')
                           LEFT JOIN pool ON pool."id" = wp.pool_id
                           LEFT JOIN firm ON firm.id = wp.firm_id
                  WHERE wp.courier_id = c.id
+                    AND wp.is_active
                    --AND wd.courier_id = c.id
                    AND (
                          ( -- Dün başladı bugün bir zaman aralığında bitti ancak raporlama yapılmadı
