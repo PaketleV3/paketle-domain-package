@@ -80,6 +80,13 @@ export class ShiftOperation {
       ],
     };
 
+    if (response && response.is_yesterday) {
+      const checkActiveWorkYesterDay = workingPlans.yesterday.find((i: any) => i.is_active_today && !i.is_end && i.is_active_state);
+      if (checkActiveWorkYesterDay && checkActiveWorkYesterDay.id && checkActiveWorkYesterDay.is_active_state) {
+        response.active_work = checkActiveWorkYesterDay;
+      }
+    }
+
     if (response.working_plan.yesterday && response.working_plan.yesterday.findIndex((i: any) => i.is_active_state) !== -1) {
       response.next_work = response.working_plan.yesterday.find((i: any) => i.is_active_state);
     } else if (response.working_plan.today && response.working_plan.today.findIndex((i: any) => i.is_active_today) !== -1) {
