@@ -47,6 +47,21 @@ SELECT json_build_object(
                         CASE WHEN wp.working_type_id='POOL' THEN 'INTEGRATION'
                         ELSE coalesce(firm.delivery_policy_id, 'NONE') 
                         END as delivery_policy_id,
+
+                        CASE WHEN wp.working_type_id='POOL' THEN 
+                            COALESCE((SELECT json_agg(json_build_object(
+                                'id', fi.id,
+                                'name', fi.name,
+                                'manuel_delivery', COALESCE(fi.is_enable_menuel_delivery, false)
+                            )) FROM firm_pool fp JOIN firm fi ON fi.id = fp.firm_id WHERE fi.is_active AND fp.pool_id=wp.pool_id), json_build_array())
+                            ELSE
+                                json_build_array(json_build_object(
+                                    'id', firm.id,
+                                    'name', firm.name,
+                                    'manuel_delivery', COALESCE(firm.is_enable_menuel_delivery, false)
+                                ))
+                        END as firms,
+
                         case
                             when coalesce(firm.delivery_policy_id, 'NONE') = 'NONE'
                                 THEN true
