@@ -11,6 +11,9 @@ export interface IJwtUser {
   email: string;
   client_id: number;
   firm_id?: number;
+  brand_id?: number | null | undefined;
+  company_id?: number | null;
+  region_id?: number | null;
   client: string;
   user_type: string;
   expires: any;
