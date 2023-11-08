@@ -14,6 +14,8 @@ export class ShiftOperation {
           working_type: item.working_type,
           firm_id: item.firm_id,
           firm_name: item.firm_name,
+          package_limit: Number(item.package_limit || 10),
+          first_package_status: item?.first_package_status || false,
           lat: item.lat,
           long: item.long,
           pool_id: item.pool_id,
@@ -63,21 +65,21 @@ export class ShiftOperation {
       is_yesterday: workingPlans && workingPlans.yesterday && workingPlans.yesterday.length >0 ? true : false,
       next_work: undefined,
       dashboard_data: [
-        {
-          label: 'Paket',
-          type: 'value',
-          value: 0,
-          series: [],
-          data: {},
-        },
+        // {
+        //   label: 'Paket',
+        //   type: 'value',
+        //   value: 0,
+        //   series: [],
+        //   data: {},
+        // },
 
-        {
-          label: 'Ek Km',
-          type: 'value',
-          value: 0,
-          series: [],
-          data: {},
-        },
+        // {
+        //   label: 'Ek Km',
+        //   type: 'value',
+        //   value: 0,
+        //   series: [],
+        //   data: {},
+        // },
       ],
     };
 
