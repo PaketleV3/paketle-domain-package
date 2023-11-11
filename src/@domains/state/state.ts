@@ -30,6 +30,8 @@ export interface IWorkingPlan {
   to_end_second?: number;
   to_start_second?: number;
   is_require_report?: boolean;
+  package_limit?: number;
+  first_package_status?: boolean;
 }
 
 export interface IStateObject {
