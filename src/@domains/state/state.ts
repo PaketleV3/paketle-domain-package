@@ -32,6 +32,7 @@ export interface IWorkingPlan {
   is_require_report?: boolean;
   package_limit?: number;
   first_package_status?: boolean;
+  select_package_type?: string;
 }
 
 export interface IStateObject {
