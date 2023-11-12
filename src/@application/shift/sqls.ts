@@ -32,6 +32,7 @@ SELECT json_build_object(
                         firm.long,
                         COALESCE(firm.package_limit, 10)::numeric as package_limit,
                         COALESCE(firm.first_package_status, false) as first_package_status,
+                        COALESCE(firm.select_package_type, 'NONE') as select_package_type,
                         wp.pool_id,
                         pool.pool_name,
                         wp.pool_id,
