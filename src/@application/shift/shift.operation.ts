@@ -17,6 +17,7 @@ export class ShiftOperation {
           package_limit: Number(item.package_limit || 10),
           first_package_status: item?.first_package_status || false,
           select_package_type: item?.select_package_type || 'NONE',
+          disable_show_address: item?.disable_show_address || false,
           lat: item.lat,
           long: item.long,
           pool_id: item.pool_id,
