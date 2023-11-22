@@ -34,6 +34,7 @@ SELECT json_build_object(
                         COALESCE(firm.first_package_status, false) as first_package_status,
                         COALESCE(firm.select_package_type, 'NONE') as select_package_type,
                         COALESCE(firm.disable_show_address, false) as disable_show_address,
+                        COALESCE(firm.disable_start_image, false) as disable_start_image,
                         wp.pool_id,
                         pool.pool_name,
                         wp.pool_id,
