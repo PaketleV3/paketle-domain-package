@@ -18,10 +18,7 @@ export class ShiftOperation {
           first_package_status: item?.first_package_status || false,
           select_package_type: item?.select_package_type || 'NONE',
           disable_show_address: item?.disable_show_address || false,
-
           disable_start_image: item?.disable_start_image || false,
-          disable_end_of_day: item?.disable_end_of_day || false,
-
           lat: item.lat,
           long: item.long,
           pool_id: item.pool_id,
