@@ -18,12 +18,17 @@ SELECT json_build_object(
                         wd.id                                  as working_day_id,
                         COALESCE(wd.is_answer, false)          as working_plan_confirm,
                         (CASE
-                             WHEN to_char(wp.start, 'YYYY-MM-DD') = to_char(now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul', 'YYYY-MM-DD') THEN 'today'
-                             WHEN to_char(wp.start, 'YYYY-MM-DD') = to_char(now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' + interval '-1 day', 'YYYY-MM-DD')
-                                 THEN 'yesterday'
-                             ELSE
-                                 'tomorrow'
-                            END)                               as group_day,
+                            WHEN 
+                                                           (to_char(wp.start, 'YYYY-MM-DD') = to_char(now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul', 'YYYY-MM-DD') )
+                                                           OR 
+                                                           (now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' BETWEEN wp.start AND wp.end)
+                                                        THEN 'today'
+                            WHEN 
+                                                               to_char(wp.start, 'YYYY-MM-DD') = to_char(now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' + interval '-1 day', 'YYYY-MM-DD')
+                            THEN 'yesterday'
+                            ELSE
+                                'tomorrow'
+                           END)                               as group_day,
                         to_char(wp.start, 'YYYY-MM-DD')        as "date",
                         wp.working_type_id                     as working_type,
                         wp.firm_id,
