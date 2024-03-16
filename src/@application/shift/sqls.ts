@@ -53,7 +53,7 @@ SELECT json_build_object(
                         wp.replacement_moto_id                 as replacement_plate,
                         coalesce(wp.is_manuel_shift, false)    as is_manuel_shift,
                         coalesce(wp.is_end, false)             as is_end,
-                        coalesce(firm.is_enable_menuel_delivery, false) as is_enable_menuel_delivery,
+                        --coalesce(firm.is_enable_menuel_delivery, false) as is_enable_menuel_delivery,
                         CASE WHEN wp.working_type_id='POOL' THEN 'INTEGRATION'
                         ELSE coalesce(firm.delivery_policy_id, 'NONE') 
                         END as delivery_policy_id,
@@ -73,9 +73,10 @@ SELECT json_build_object(
                         END as firms,
 
                         case
-                            when coalesce(firm.delivery_policy_id, 'NONE') = 'NONE'
-                                THEN true
-                            else false end                     as is_enable_manuel_delivery,
+                            when 
+							    (wp.working_type_id='DEDICA' AND firm.is_enable_menuel_delivery IS TRUE) OR wp.working_type_id='POOL' THEN true
+                            else false 
+                         end  as is_enable_menuel_delivery,
                         CASE
                             WHEN (
                                             now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' >=
@@ -84,7 +85,7 @@ SELECT json_build_object(
                                             now()::timestamp at time zone 'UTC' at time zone 'Europe/Istanbul' <=
                                             wp."end"
                                 ) THEN true
-                            ELSE FALSE END                     as is_active_state,
+                            ELSE FALSE END as is_active_state,
 
                         CASE
                             WHEN (
